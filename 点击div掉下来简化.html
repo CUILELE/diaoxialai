@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*body{
+				position: relative;
+			}*/
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 0;
+				top: 0;
+				text-align: center;
+				line-height: 100px;
+				color: white;
+				font-size:60px ;
+				transition: 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+		<div>6</div>
+		<div>7</div>
+		<div>8</div>
+		<div>9</div>
+		<div>10</div>
+	</body>
+	<script type="text/javascript">
+		var  divs = document.getElementsByTagName('div');
+		for(var i=0;i<divs.length;i++){
+			divs[i].style.left = i*102+'px';
+			divs[i].onclick =function (){
+				next(this);
+				prev(this);
+			}
+		};
+		function next(obj){
+			obj.style.top = 400+'px';
+			if(obj.nextElementSibling){
+				setTimeout(function (){
+					next(obj.nextElementSibling)
+				},50)
+			};
+		};
+		function prev(obj){
+			obj.style.top = 400+'px';
+			if(obj.previousElementSibling){
+				setTimeout(function (){
+					prev(obj.previousElementSibling)
+				},50)
+			};
+		};
+	</script>
+</html>
